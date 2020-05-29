@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Lab06a.Views.ItemsPage"
+             Title="Lista studentów"
+             x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <RefreshView IsRefreshing="{Binding IsBusy, Mode=TwoWay}" Command="{Binding LoadItemsCommand}">
+            <CollectionView x:Name="ItemsCollectionView"
+                    ItemsSource="{Binding Items}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="12">
+                            <Frame BorderColor="Red">
+                            <StackLayout>
+                                    <Grid>
+                                <Label Text="{Binding FName}" 
+                                    Grid.Column="0"
+                                    Grid.Row="0"
+                                    TextColor="DarkGray"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                       />
+                                <Label Text="{Binding LName}" 
+                                    Grid.Column="0"
+                                    Grid.Row="1"
+                                    TextColor="DarkGray"
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                       />
+                                <Label Text="{Binding Album}" 
+                                    Grid.Column="1"
+                                    Grid.Row="0"
+                                    LineBreakMode="NoWrap"
+                                    TextColor="DarkGray"
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                       />
+                                <Label Text="{Binding Plec}" 
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    LineBreakMode="NoWrap"
+                                    TextColor="DarkGray"
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" 
+                                       />
+                                    </Grid>
+                                    <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        NumberOfTapsRequired="1" 
+                                        Command="{Binding Source={x:Reference BrowseItemsPage}, Path=BindingContext.GoToDetailsCommand}"
+                                        CommandParameter="{Binding .}"
+                                       ></TapGestureRecognizer>
+
+                                </StackLayout.GestureRecognizers>
+
+                            </StackLayout>
+                        </Frame>
+                      </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

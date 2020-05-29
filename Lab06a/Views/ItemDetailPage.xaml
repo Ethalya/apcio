@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Lab06a.Views.ItemDetailPage"
+             Title="{Binding Title}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <Label Text="Imie:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Text}" d:Text="Item name" FontSize="Small"/>
+        <Label Text="Nazwisko:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Nazwisko}" d:Text="Item description" FontSize="Small"/>
+        <Label Text="NrAlbumu:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Numer}" d:Text="Item nr" FontSize="Small"/>
+        <Label Text="Plec:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Plec}" d:Text="Item plec" FontSize="Small"/>
+    </StackLayout>
+    
+</ContentPage>
