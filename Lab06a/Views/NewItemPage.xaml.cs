@@ -13,17 +13,17 @@ namespace Lab06a.Views
     [DesignTimeVisible(false)]
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Students Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new Students
             {
-                Text = "",
-                Nazwisko = "",
-                Numer = "",
+                FName = "",
+                LName = "",
+                Album = "",
                 Plec = ""
             };
 

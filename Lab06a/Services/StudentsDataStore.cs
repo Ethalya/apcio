@@ -19,11 +19,12 @@ namespace Lab06a.Services
         public StudentsDataStore()
         {
             _client = new HttpClient(GetInsecureHandler());
+            _client.BaseAddress = new Uri($"https://192.168.1.3:45455/");
         }
 
         public async Task<List<Students>> GetItemsAsync(bool v)
         {
-            var url = @"https://https://192.168.1.4:45455/api/Students";
+            var url = @"https://192.168.1.3:45455/api/Students";
 
             var response = await _client.GetAsync(url);
             if (response.IsSuccessStatusCode)
@@ -42,7 +43,7 @@ namespace Lab06a.Services
 
             var serializedItem = JsonConvert.SerializeObject(item);
 
-            var response = await _client.PostAsync($"api/item", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
+            var response = await _client.PostAsync($"api/Students", new StringContent(serializedItem, Encoding.UTF8, "application/json"));
 
             return response.IsSuccessStatusCode;
         }
@@ -56,7 +57,7 @@ namespace Lab06a.Services
             var buffer = Encoding.UTF8.GetBytes(serializedItem);
             var byteContent = new ByteArrayContent(buffer);
 
-            var response = await _client.PutAsync(new Uri($"api/item/{item.Id}"), byteContent);
+            var response = await _client.PutAsync(new Uri($"api/Students/{item.Id}"), byteContent);
 
             return response.IsSuccessStatusCode;
 
@@ -67,7 +68,7 @@ namespace Lab06a.Services
             if (string.IsNullOrEmpty(id) && !IsConnected)
                 return false;
 
-            var response = await _client.DeleteAsync($"api/item/{id}");
+            var response = await _client.DeleteAsync($"api/Students/{id}");
 
             return response.IsSuccessStatusCode;
         }
