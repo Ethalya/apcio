@@ -12,15 +12,15 @@ namespace ApiLab7.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
-        public static List<Students> lista;
+        public static List<Students> lista = new List<Students>()
+        {
+            new Students() { Id = 1, FName = "Piernik", LName = "Piernikowy", Album = "11111", Plec = "Ciasto"},
+            new Students() { Id = 2, FName = "Janusz", LName = "Korwin Mikke", Album = "666", Plec = "Raper"},
+            new Students() { Id = 3, FName = "Tak", LName = "Było", Album = "12345", Plec = "Tak"}
+        };
         public StudentsController()
         {
-            lista = new List<Students>()
-            {
-                new Students() { Id = 1, FName = "Piernik", LName = "Piernikowy", Album = "11111", Plec = "Ciasto"},
-                new Students() { Id = 2, FName = "Janusz", LName = "Korwin Mikke", Album = "666", Plec = "Raper"},
-                new Students() { Id = 3, FName = "Tak", LName = "Było", Album = "12345", Plec = "Tak"},
-            };
+            
         }
 
         // GET: api/Students
@@ -41,11 +41,11 @@ namespace ApiLab7.Controllers
         [HttpPost]
         public void Post([FromBody] Students item)
         {
-            int x = lista.Count > 0 ? lista[lista.Count - 1].Id : 1;
+            int? x = lista.Count > 0 ? lista[lista.Count - 1].Id : 1;
 
             lista.Add(new Students()
             {
-                Id = x,
+                Id = x + 1,
                 FName = item.FName,
                 LName = item.LName,
                 Album = item.Album,

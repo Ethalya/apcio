@@ -9,7 +9,7 @@ namespace Lab06a.ViewModels
         public Students Item { get; set; }
         public ItemDetailViewModel(Students item = null)
         {
-            Title = item;
+            Title = item.FName + "" + item.LName;
             Item = item;
         }
     }

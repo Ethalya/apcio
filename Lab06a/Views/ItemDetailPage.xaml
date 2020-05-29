@@ -9,13 +9,13 @@
 
     <StackLayout Spacing="20" Padding="15">
         <Label Text="Imie:" FontSize="Medium" />
-        <Editor Text="{Binding Item.FName}" d:Text="Item name" FontSize="Small"/>
+        <Editor Text="{Binding Item.FName}" d:Text="" FontSize="Small"/>
         <Label Text="Nazwisko:" FontSize="Medium" />
-        <Editor Text="{Binding Item.LName}" d:Text="Item description" FontSize="Small"/>
-        <Label Text="NrAlbumu:" FontSize="Medium" />
-        <Editor Text="{Binding Item.Album}" d:Text="Item nr" FontSize="Small"/>
+        <Editor Text="{Binding Item.LName}" d:Text="" FontSize="Small"/>
+        <Label Text="Nr albumu:" FontSize="Medium" />
+        <Editor Text="{Binding Item.Album}" d:Text="" FontSize="Small"/>
         <Label Text="Plec:" FontSize="Medium" />
-        <Editor Text="{Binding Item.Plec}" d:Text="Item plec" FontSize="Small"/>
+        <Editor Text="{Binding Item.Plec}" d:Text="" FontSize="Small"/>
     </StackLayout>
     
 </ContentPage>
