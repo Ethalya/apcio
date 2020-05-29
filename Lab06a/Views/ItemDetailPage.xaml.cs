@@ -28,6 +28,7 @@ namespace Lab06a.Views
 
             var item = new Students
             {
+                Id = 1,
                 FName = "",
                 LName = "",
                 Album = "",

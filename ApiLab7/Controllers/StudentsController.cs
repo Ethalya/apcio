@@ -41,7 +41,16 @@ namespace ApiLab7.Controllers
         [HttpPost]
         public void Post([FromBody] Students item)
         {
-            lista.Add(item);
+            int x = lista.Count > 0 ? lista[lista.Count - 1].Id : 1;
+
+            lista.Add(new Students()
+            {
+                Id = x,
+                FName = item.FName,
+                LName = item.LName,
+                Album = item.Album,
+                Plec = item.Plec
+            });
         }
 
         // PUT: api/Students/5

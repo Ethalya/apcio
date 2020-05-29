@@ -8,7 +8,7 @@ namespace ApiLab7.Models
 {
     public class Students
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string FName { get; set; }
         [Required]
